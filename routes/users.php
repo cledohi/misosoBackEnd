@@ -1,5 +1,4 @@
 <?php
-
 use App\Controllers\CleDoHiUserController;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -13,3 +12,5 @@ $app->post("/sectors",CleDoHiUserController::class.':getSector');
 $app->post("/cells",CleDoHiUserController::class.':getCell');
 $app->post("/villages",CleDoHiUserController::class.':getVillage');
 $app->get("/agent-by-phone",CleDoHiUserController::class.':getAgentByphone');
+$app->post("/add-new-agent",CleDoHiUserController::class.':addNewAgent');
+$app->get("/all-agents",CleDoHiUserController::class.':allAgents');

@@ -58,6 +58,84 @@ class CleDoHiUserController
         $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . $filename);
         return "https://www.misoso.rw/assets/uploads/userProfiles" . DIRECTORY_SEPARATOR . $filename;
     }
+    public function allAgents($request , $response,$args){
+      $resp=new MyResponse();
+      try{
+        
+        $con=Db::cleDoHiDb("gkdujatf_misosodb");
+        $sql="SELECT * FROM agents ORDER BY agents.id desc";
+        $sql=$con->query($sql);
+            $rows=$sql->fetchAll(PDO::FETCH_OBJ); 
+            if($sql->rowCount()> 0){
+              $resp->status=200;
+              $resp->body=$rows;
+            }else{
+              $resp->status=404;
+              $resp->body=$rows;
+            }          
+        return json_encode($resp);
+      }catch(Exception $e){
+        $resp->status=500;
+        $resp->body=$e->getMessage();
+        return json_encode($resp);   
+      }
+    }
+    public function addNewAgent($request , $response,$args){
+      $resp=new MyResponse();
+      try{
+        $reqData= json_decode($request->getBody());
+        $aboutme=$reqData->aboutme;
+        $dobplace=$reqData->placeOfBirth;
+        $workplace=$reqData->placeOfWork;
+        $userid=$aboutme->UserId;
+        $documentno=$aboutme->NationalId;
+        $phone=$aboutme->phone;
+        $fullnames=$aboutme->Names;
+        $workprovince=$workplace->provincename;
+        $workdistrict=$workplace->districtname;
+        $worksector=$workplace->sectorname;
+        $workcell=$workplace->cellname;
+        $dobprovince=$dobplace->provincename;
+        $dobdistrict=$dobplace->districtname;
+        $dobsector=$dobplace->sectorname;
+        $dobcell=$dobplace->cellname;
+        $dobvillage=$dobplace->villagename;
+        $education="A2";
+        $con=Db::cleDoHiDb("gkdujatf_misosodb");
+        $sql="call creatNewAgent(?,?,?,?,?,?,?,?,?,?,?, ?, ?, ?)";
+        $sql=$con->prepare($sql);
+            $sql->bindParam(1, $userid);
+            $sql->bindParam(2, $documentno);
+            $sql->bindParam(3, $phone);
+            $sql->bindParam(4, $fullnames);
+            $sql->bindParam(5, $workprovince);
+            $sql->bindParam(6, $workdistrict);
+            $sql->bindParam(7, $worksector);
+            $sql->bindParam(8, $workcell);
+            $sql->bindParam(9, $dobprovince);
+            $sql->bindParam(10, $dobdistrict);
+            $sql->bindParam(11, $dobsector);
+            $sql->bindParam(12, $dobcell);
+            $sql->bindParam(13, $dobvillage);
+            $sql->bindParam(14, $education);
+            $sql->execute();
+            $row=$sql->fetch(PDO::FETCH_OBJ);
+           
+            if($sql->rowCount()> 0){
+              $resp->status=200;
+              $resp->body=$row;
+            }else{
+              $resp->status=300;
+              $resp->body=$row;
+            }
+               
+        return json_encode($resp);
+      }catch(Exception $e){
+        $resp->status=500;
+        $resp->body=$e->getMessage();
+        return json_encode($resp);   
+      }
+    }
     public function getAgentByphone($request, $response, $args){
       $sql="call getAgentByPhone(?)";
       $resp=new MyResponse();
@@ -283,25 +361,3 @@ class MyResponse
     public $status;
     public $body;
 }
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
