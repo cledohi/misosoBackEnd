@@ -26,8 +26,8 @@ $container=$app->getContainer();
 $container['CleDoHiUserController']=function($container){
     return new \App\Controllers\CleDoHiUserController;
 };
-$container['ReportController']=function($container){
-    return new \App\Controllers\ReportController;
+$container['MisosoContract']=function($container){
+    return new \App\Controllers\MisosoContract;
 };
 $container['JavaApiController'] = function($container){
 	return new \App\Controllers\JavaApiController;
@@ -46,4 +46,5 @@ require __DIR__."/../routes/javaroute.php";
 require __DIR__."/../routes/rsclient.php";
 require __DIR__."/../routes/visitors.php";
 require __DIR__."/../routes/stripe.php";
+require __DIR__."/../routes/contract.php";
 ?>

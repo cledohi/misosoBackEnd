@@ -102,7 +102,7 @@ class CleDoHiUserController
         $dobvillage=$dobplace->villagename;
         $education="A2";
         $con=Db::cleDoHiDb("gkdujatf_misosodb");
-        $sql="call creatNewAgent(?,?,?,?,?,?,?,?,?,?,?, ?, ?, ?)";
+        $sql="call creatNewAgent(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $sql=$con->prepare($sql);
             $sql->bindParam(1, $userid);
             $sql->bindParam(2, $documentno);
@@ -361,3 +361,14 @@ class MyResponse
     public $status;
     public $body;
 }
+
+
+
+
+
+
+
+
+
+
+
