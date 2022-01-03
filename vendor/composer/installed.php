@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '121461c8c53a7ea4c208cbdab6f4dd486567502b',
+        'reference' => '965c91628694026ab26c5c690f7b74e483f9c947',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '121461c8c53a7ea4c208cbdab6f4dd486567502b',
+            'reference' => '965c91628694026ab26c5c690f7b74e483f9c947',
             'dev_requirement' => false,
         ),
         'bombayworks/zendframework1' => array(
@@ -71,6 +71,15 @@
             'install_path' => __DIR__ . '/../phpdocumentor/type-resolver',
             'aliases' => array(),
             'reference' => 'a12f7e301eb7258bb68acd89d4aefa05c2906cae',
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.5.3',
+            'version' => '6.5.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'reference' => 'baeb7cde6b60b1286912690ab0693c7789a31e71',
             'dev_requirement' => false,
         ),
         'phpspec/prophecy' => array(
