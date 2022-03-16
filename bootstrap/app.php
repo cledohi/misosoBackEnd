@@ -29,6 +29,9 @@ $container['CleDoHiUserController']=function($container){
 $container['MisosoContract']=function($container){
     return new \App\Controllers\MisosoContract;
 };
+$container['EmailController']=function($container){
+    return new \App\Controllers\EmailController;
+};
 $container['JavaApiController'] = function($container){
 	return new \App\Controllers\JavaApiController;
 };
@@ -47,4 +50,5 @@ require __DIR__."/../routes/rsclient.php";
 require __DIR__."/../routes/visitors.php";
 require __DIR__."/../routes/stripe.php";
 require __DIR__."/../routes/contract.php";
+require __DIR__."/../routes/emailroute.php";
 ?>

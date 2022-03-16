@@ -8,7 +8,8 @@ public function stripepay($request, $response, $args){
 	 try {
 $input = json_decode($request->getBody());
 $token=$input->token;
-
+$email=$input->email;
+$data=$input->data;
 // parse attributes from JSON
 $receiptEmail = $data['receiptEmail'];
 $amount = $data['amount'];
