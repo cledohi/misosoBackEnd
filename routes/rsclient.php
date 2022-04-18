@@ -14,7 +14,7 @@ $app->get("/ibirimunzu",RSClients::class.':ibirimunzu');
 $app->get("/parking",RSClients::class.':parking');
 $app->get("/igisenge",RSClients::class.':igisenge');
 $app->post("/uploadHouse", RSClients::class.':createUpdateHouse');
-$app->post("/recenthouse", RSClients::class.':getRecentHouseList');
+$app->post("/recent_house", RSClients::class.':getRecentHouseList');
 $app->get("/adverthouse", RSClients::class.':HouseAdvertList');
 $app->post("/gallery", RSClients::class.':getGalleryHouse');
 $app->post("/adm-house-info", RSClients::class.':getAdminHouseInformation');

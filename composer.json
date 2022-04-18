@@ -3,6 +3,8 @@
         "slim/slim": "3.*",
         "stripe/stripe-php": "^7.75",
         "quickshiftin/php-pdf-invoice": "^1.10",
-        "phpmailer/phpmailer": "^6.5"
+        "phpmailer/phpmailer": "^6.5",
+        "illuminate/database": "^8.83",
+        "awurth/slim-validation": "^3.4"
     }
 }
