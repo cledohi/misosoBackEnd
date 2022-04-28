@@ -17,12 +17,6 @@ public function isReqSearchHouseValid( $request,$validator){
             'messages' => [
                 'notBlank' => 'product code is required'
             ]
-        ],
-        'prodPrice'=>[
-            'rules' => V::intVal(),
-            'messages' => [
-                'intVal' => 'Product Price  Note Allowed'
-            ]
         ]
 
     ]);

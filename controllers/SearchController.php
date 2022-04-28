@@ -37,19 +37,9 @@ class SearchController
         $isValid = $validate->isValid();
         $parsedBody = $request->getParsedBody();
         if ($isValid) {
-
-            if ($parsedBody['prodPrice'] == "LSale" || $parsedBody['prodPrice'] == "HSale") {
                 $houses = $this->house
                     ->where('DistrictCode', $parsedBody['addCode'],)
-                    ->where('businessType', $parsedBody['prodCode'])
-                    ->where("RentalAmount", $parsedBody['prodPrice'])->get();
-            } else {
-                $houses = $this->house
-                    ->where('DistrictCode', $parsedBody['addCode'],)
-                    ->where('businessType', $parsedBody['prodCode'])
-                    ->where("SellingAmount", $parsedBody['prodPrice'])->get();
-            }
-
+                    ->where('businessType', $parsedBody['prodCode'])->get();
             if (sizeof($houses) > 0) {
                 $responsebean->status = 200;
                 $responsebean->message = "success";
